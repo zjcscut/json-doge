@@ -36,6 +36,8 @@ public class AboutDialogManager {
 		pane.add(new JLabel("   control description："));
 		pane.add(new JLabel("   Ctrl F：format json"));
 		pane.add(new JLabel("   Ctrl M：minify json"));
+		pane.add(new JLabel("   Ctrl I：open about dialog"));
+		pane.add(new JLabel("   Ctrl N：create an new tab"));
 		pane.add(new JLabel("   "));
 		pane.add(new JLabel("   power by："));
 		pane.add(new JLabel("   fastjson-1.2.41"));
