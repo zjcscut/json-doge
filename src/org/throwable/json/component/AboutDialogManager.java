@@ -31,10 +31,15 @@ public class AboutDialogManager {
 		pane.add(new JLabel("   application：json-doge"));
 		pane.add(new JLabel("   author：throwable"));
 		pane.add(new JLabel("   github：https://github.com/zjcscut"));
+		pane.add(new JLabel("   email：739805340@qq.com"));
 		pane.add(new JLabel("   "));
 		pane.add(new JLabel("   control description："));
 		pane.add(new JLabel("   Ctrl F：format json"));
 		pane.add(new JLabel("   Ctrl M：minify json"));
+		pane.add(new JLabel("   "));
+		pane.add(new JLabel("   power by："));
+		pane.add(new JLabel("   fastjson-1.2.41"));
+		pane.add(new JLabel("   rsyntaxtextarea-2.6.1"));
 		dialog.setVisible(Boolean.TRUE);
 	}
 }
