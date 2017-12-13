@@ -1,7 +1,5 @@
 package org.throwable.json.utils;
 
-import javafx.scene.input.ClipboardContent;
-
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
