@@ -12,6 +12,10 @@ import org.throwable.json.common.Constants;
 import org.throwable.json.common.MessageBundleKey;
 import org.throwable.json.common.TreeNodeType;
 import org.throwable.json.component.*;
+import org.throwable.json.component.listener.TreeNodeCopyKeyListener;
+import org.throwable.json.component.listener.TreeNodeCopyKeyValueListener;
+import org.throwable.json.component.listener.TreeNodeCopyValueListener;
+import org.throwable.json.component.listener.TreeNodeMenuListener;
 import org.throwable.json.model.TreeNodePair;
 import org.throwable.json.support.ImageIconLoader;
 import org.throwable.json.support.JsonTreeViewParser;
@@ -240,7 +244,23 @@ public class Application extends JFrame {
 	private JTree initFakeTree() {
 		DefaultMutableTreeNode root = createTreeRootNode();
 		DefaultTreeModel model = new DefaultTreeModel(root);
-		return new JTree(model);
+		JTree jTree = new JTree(model);
+		createTreePopupMenu(jTree);
+		return jTree;
+	}
+
+	private void createTreePopupMenu(JTree jTree) {
+		JPopupMenu menu = new JPopupMenu();
+		JMenuItem copyKey = new JMenuItem("copy key");
+		copyKey.addActionListener(new TreeNodeCopyKeyListener(jTree));
+		menu.add(copyKey);
+		JMenuItem copyValue = new JMenuItem("copy value");
+		copyValue.addActionListener(new TreeNodeCopyValueListener(jTree));
+		menu.add(copyValue);
+		JMenuItem copyKeyValue = new JMenuItem("copy key-value");
+		copyKeyValue.addActionListener(new TreeNodeCopyKeyValueListener(jTree));
+		menu.add(copyKeyValue);
+		jTree.addMouseListener(new TreeNodeMenuListener(jTree, menu));
 	}
 
 	private JTree populateTree(Object jsonObject) {
